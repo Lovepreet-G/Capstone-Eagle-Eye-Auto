@@ -48,4 +48,4 @@ Eagle Eye Auto aims to establish an online presence for the mechanic shop, enhan
 ## Third-party APIs
 - Google Maps API
 ## Contributors
--Lovepreet Singh (@Lovepreet-G)
+- [Lovepreet Singh](https://github.com/Lovepreet-G)
