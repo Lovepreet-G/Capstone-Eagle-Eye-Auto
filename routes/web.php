@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeesController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,21 +12,26 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-// Route::get('/admin/car-repairs', function () {
-//     return view('admin.carRepairs');
-// })->name('admin.carRepairs');
+Route::get('/admin/car-repairs', function () {
+    return view('admin.carRepairHistory');
+})->name('admin.carRepairHistory');
 
-// Route::get('/admin/add-car-repair', function () {
-//     return view('admin.addCarRepair');
-// })->name('admin.addCarRepair');
+Route::get('/admin/add-car-repair', function () {
+    return view('admin.addCarRepair');
+})->name('admin.addCarRepair');
 
 // Route::get('/admin/employees', function () {
 //     return view('admin.employees');
 // })->name('admin.employees');
 
-// Route::get('/admin/add-employee', function () {
-//     return view('admin.addEmployee');
-// })->name('admin.addEmployee');
+
+Route::get('/admin/employees', 
+    [EmployeesController::class, 'show'])
+    ->name('admin.employees');
+
+Route::get('/admin/add-employee', function () {
+    return view('admin.addEmployee');
+})->name('admin.addEmployee');
 
 
 Route::get('/dashboard', function () {

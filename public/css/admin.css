@@ -1,7 +1,16 @@
+body
+{
+    margin:0;
+    font-family: "Poppins", sans-serif;
+}
+
 .navbar {
     background-color: #343a40;
     color: #fff;
     padding: 1rem;
+    /* position: fixed; */
+    /* height: auto; */
+    /* width: 100vw; */
 }
 .navbar-brand {
     display: flex;
@@ -11,14 +20,23 @@
     max-height: 40px;
     margin-right: 10px;
 }
+nav a
+{
+    text-decoration: none;
+    color: #f8f9fa;
+    font-size: large;
+
+}
 .sidebar {
-    width: 250px;
+    width: 200px;
     background-color: #f8f9fa;
     padding: 1rem;
     height: 100vh;
+    top:72px;
     position: fixed;
 }
 .content {
+    
     margin-left: 250px;
     padding: 1rem;
 }
@@ -30,4 +48,14 @@
 }
 .sidebar a:hover {
     background-color: #e9ecef;
+}
+table
+{
+    font-size: 0.85rem;
+}
+table ,th, td,tr
+{
+
+    border : 1px solid black;
+    border-collapse: collapse;
 }

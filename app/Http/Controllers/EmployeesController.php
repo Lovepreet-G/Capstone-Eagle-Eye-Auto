@@ -37,7 +37,8 @@ class EmployeesController extends Controller
      */
     public function show(employees $employees)
     {
-        //
+        $employees = employees::all();
+        return view('admin.employees', compact('employees'));        
     }
 
     /**
