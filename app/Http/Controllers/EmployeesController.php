@@ -21,7 +21,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.addEmployee');
     }
 
     /**
@@ -29,8 +29,29 @@ class EmployeesController extends Controller
      */
     public function store(StoreemployeesRequest $request)
     {
-        //
+        $request->validate([
+            'employee_name' => 'required|string|max:100',
+            'email_address' => 'required|email|max:100',
+            'mobile_number' => 'required|numeric',
+            'address' => 'required|string|max:200',
+            'job_role' => 'required|string|max:100',
+            'joining_date' => 'required|date',
+            'resignation_date' => 'nullable|date',
+        ]);
+    
+        Employee::create([
+            'employee_name' => $request->employee_name,
+            'email_address' => $request->email_address,
+            'mobile_number' => $request->mobile_number,
+            'address' => $request->address,
+            'job_role' => $request->job_role,
+            'joining_date' => $request->joining_date,
+            'resignation_date' => $request->resignation_date,
+        ]);
+    
+        return redirect()->route('admin.employees')->with('success', 'Employee added successfully.');
     }
+    
 
     /**
      * Display the specified resource.

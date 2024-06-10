@@ -53,9 +53,4 @@ table
 {
     font-size: 0.85rem;
 }
-table ,th, td,tr
-{
 
-    border : 1px solid black;
-    border-collapse: collapse;
-}
