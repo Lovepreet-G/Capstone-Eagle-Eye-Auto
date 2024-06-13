@@ -13,7 +13,8 @@ class CarRepairHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $carRepairs = CarRepair::all();
+        return view('admin.carRepairHistory', compact('carRepairs'));
     }
 
     /**

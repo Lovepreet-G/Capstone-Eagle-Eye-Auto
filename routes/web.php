@@ -37,11 +37,14 @@ Route::get('/admin/addemployee/',
     [EmployeesController::class, 'create'])
     ->name('admin.addEmployee');
 // post request to store employee data
-Route::post('/admin/employees/store', 
+Route::post('/admin/employeeStore', 
     [EmployeesController::class, 'store'])
-    ->name('admin.employee.store');
+    ->name('admin.employeeStore');
+// Route for car history
+Route::get('/admin/car-repairs', 
+    [CarRepairController::class, 'index'])
+    ->name('admin.carRepairHistory');
 });
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

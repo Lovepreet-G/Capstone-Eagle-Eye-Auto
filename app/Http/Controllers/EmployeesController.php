@@ -29,6 +29,7 @@ class EmployeesController extends Controller
      */
     public function store(StoreemployeesRequest $request)
     {
+    
         $request->validate([
             'employee_name' => 'required|string|max:100',
             'email_address' => 'required|email|max:100',
@@ -39,10 +40,10 @@ class EmployeesController extends Controller
             'resignation_date' => 'nullable|date',
         ]);
     
-        Employee::create([
+        employees::create([
             'employee_name' => $request->employee_name,
-            'email_address' => $request->email_address,
-            'mobile_number' => $request->mobile_number,
+            'email' => $request->email_address,
+            'mobile' => $request->mobile_number,
             'address' => $request->address,
             'job_role' => $request->job_role,
             'joining_date' => $request->joining_date,

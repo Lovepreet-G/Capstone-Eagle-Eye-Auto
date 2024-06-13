@@ -11,7 +11,7 @@ class Storecar_repair_historyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
