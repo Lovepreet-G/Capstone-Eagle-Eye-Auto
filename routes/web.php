@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CarRepairHistoryController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
 
@@ -15,35 +17,44 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     Route::resource('employees', EmployeeController::class);
-    
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+        
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 
-Route::get('/admin/car-repairs', function () {
-    return view('admin.carRepairHistory');
-})->name('admin.carRepairHistory');
+    Route::get('/admin/car-repairs', function () {
+        return view('admin.carRepairHistory');
+    })->name('admin.carRepairHistory');
 
-Route::get('/admin/add-car-repair', function () {
-    return view('admin.addCarRepair');
-})->name('admin.addCarRepair');
+    Route::get('/admin/add-car-repair', function () {
+        return view('admin.addCarRepair');
+    })->name('admin.addCarRepair');
 
-Route::get('/admin/employees', 
-    [EmployeesController::class, 'show'])
-    ->name('admin.employees');
+    Route::get('/admin/employees', 
+        [EmployeesController::class, 'show'])
+        ->name('admin.employees');
 
 
-Route::get('/admin/addemployee/', 
-    [EmployeesController::class, 'create'])
-    ->name('admin.addEmployee');
-// post request to store employee data
-Route::post('/admin/employeeStore', 
-    [EmployeesController::class, 'store'])
-    ->name('admin.employeeStore');
+    Route::get('/admin/addemployee/', 
+        [EmployeesController::class, 'create'])
+        ->name('admin.addEmployee');
+    // post request to store employee data
+    Route::post('/admin/employeeStore', 
+        [EmployeesController::class, 'store'])
+        ->name('admin.employeeStore');
 // Route for car history
-Route::get('/admin/car-repairs', 
-    [CarRepairController::class, 'index'])
-    ->name('admin.carRepairHistory');
+    Route::get('/admin/car-repairs', 
+        [CarRepairHistoryController::class, 'index'])
+        ->name('admin.carRepairHistory');
+    Route::get('/admin/add-car-repair', 
+        [CarRepairHistoryController::class, 'create'])
+        ->name('admin.addCarRepair');
+
+    Route::post('/admin/car-repair/store', 
+        [CarRepairHistoryController::class, 'store'])
+        ->name('admin.carRepairStore');
+    
+    
 });
 
 Route::get('/dashboard', function () {

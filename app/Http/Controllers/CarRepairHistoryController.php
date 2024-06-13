@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\car_repair_history;
 use App\Http\Requests\Storecar_repair_historyRequest;
 use App\Http\Requests\Updatecar_repair_historyRequest;
+use App\Models\employees;
+
 
 class CarRepairHistoryController extends Controller
 {
@@ -13,7 +15,7 @@ class CarRepairHistoryController extends Controller
      */
     public function index()
     {
-        $carRepairs = CarRepair::all();
+        $carRepairs = car_repair_history::all();
         return view('admin.carRepairHistory', compact('carRepairs'));
     }
 
@@ -21,8 +23,9 @@ class CarRepairHistoryController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    { 
+        $employees = employees::all();
+        return view('admin.addCarRepair', compact('employees'));
     }
 
     /**
@@ -30,7 +33,19 @@ class CarRepairHistoryController extends Controller
      */
     public function store(Storecar_repair_historyRequest $request)
     {
-        //
+        $request->validate([
+            'vin' => 'required|integer',
+            'repair_date' => 'required|date',
+            'repair_type' => 'required|string|max:255',
+            'employee_id' => 'nullable|exists:employees,id',
+            'parts_used' => 'required|string|max:255',
+            'total_cost' => 'required|numeric',
+            'note' => 'nullable|string',
+        ]);
+
+        car_repair_history::create($request->all());
+
+        return redirect()->route('admin.carRepairHistory')->with('success', 'Car repair record added successfully.');
     }
 
     /**
