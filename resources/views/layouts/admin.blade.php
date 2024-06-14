@@ -14,6 +14,9 @@
     <!-- Add your CSS links here -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    {{-- footawsome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
 <body>
@@ -38,13 +41,37 @@
     </nav>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('admin.carRepairHistory') }}">Car Repair History</a>
-        <a href="{{ route('admin.addCarRepair') }}">Add Repaired Car Details</a>
-        <a href="{{ route('admin.employees') }}">Employee List</a>
-        <a href="{{ route('admin.addEmployee') }}">Add Employee</a>
-    </div>
+    <nav class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.employees') ? 'active' : '' }}" href="{{ route('admin.employees') }}">
+                    Employees
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.carRepairHistory') ? 'active' : '' }}" href="{{ route('admin.carRepairHistory') }}">
+                    Car Repair History
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.addCarRepair') ? 'active' : '' }}" href="{{ route('admin.addCarRepair') }}">
+                    Add Car Repair
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.addEmployee') ? 'active' : '' }}" href="{{ route('admin.addEmployee') }}">
+                    Add Employee
+                </a>
+            </li>
+            <!-- Add more sidebar links as needed -->
+        </ul>
+    </nav>
+    
 
     <!-- Main Content -->
     <div class="content main">

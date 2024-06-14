@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CarRepairHistoryController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
@@ -18,9 +19,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('employees', EmployeeController::class);
         
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', 
+        [DashboardController::class, 'showDashboard'])
+        ->name('admin.dashboard');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin.dashboard');
 
     
 // show all employees
