@@ -2,6 +2,21 @@
 
 @section('content')
     <h1>List of Employees</h1>
+    <form method="GET" action="{{ route('admin.employees-search') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Search" value="{{ request()->get('search') }}">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="field">Search by:</label>
+                <select class="form-select" name="field">
+                    <option value="employee_name" {{ request()->get('field') == 'employee_name' ? 'selected' : '' }}>Name</option>
+                    <option value="mobile" {{ request()->get('field') == 'mobile' ? 'selected' : '' }}>Mobile</option>
+                    <option value="email" {{ request()->get('field') == 'email' ? 'selected' : '' }}>Email</option>
+                    <option value="address" {{ request()->get('field') == 'address' ? 'selected' : '' }}>Address</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>

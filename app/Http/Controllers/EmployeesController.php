@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\employees;
 use App\Http\Requests\StoreemployeesRequest;
 use App\Http\Requests\UpdateemployeesRequest;
@@ -11,11 +12,11 @@ class EmployeesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(employees $employees)
     {
-        //
+        $employees = employees::all();
+        return view('admin.employees', compact('employees')); 
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -57,11 +58,18 @@ class EmployeesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(employees $employees)
+    public function show(Request $request)
     {
-        $employees = employees::all();
-        return view('admin.employees', compact('employees'));        
+        $search = $request->input('search');
+        $field = $request->input('field','employee_name');
+        if ($search) {
+            $employees = employees::where($field, 'like', "%".$search."%")->get();
+        } else {
+            $employees = employees::all();
+        }
+        return view('admin.employees', compact('employees'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

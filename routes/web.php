@@ -12,9 +12,9 @@ Route::get('/', function () {
 
 // Group routes that require authentication
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('adminDashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('adminDashboard');
+    // })->name('dashboard');
 
     Route::resource('employees', EmployeeController::class);
         
@@ -22,38 +22,37 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
-    Route::get('/admin/car-repairs', function () {
-        return view('admin.carRepairHistory');
-    })->name('admin.carRepairHistory');
-
-    Route::get('/admin/add-car-repair', function () {
-        return view('admin.addCarRepair');
-    })->name('admin.addCarRepair');
-
+    
+// show all employees
     Route::get('/admin/employees', 
-        [EmployeesController::class, 'show'])
+        [EmployeesController::class, 'index'])
         ->name('admin.employees');
-
-
+//show form to add employee
     Route::get('/admin/addemployee/', 
         [EmployeesController::class, 'create'])
         ->name('admin.addEmployee');
-    // post request to store employee data
+// post request to store employee data
     Route::post('/admin/employeeStore', 
         [EmployeesController::class, 'store'])
         ->name('admin.employeeStore');
-// Route for car history
+// to search a employee by their name   
+    Route::get('/admin/employees-search', 
+        [EmployeesController::class, 'show'])
+        ->name('admin.employees-search');
+     
+    
+// Route to show all records of  car repaired
     Route::get('/admin/car-repairs', 
         [CarRepairHistoryController::class, 'index'])
         ->name('admin.carRepairHistory');
+//show form to add car details   
     Route::get('/admin/add-car-repair', 
         [CarRepairHistoryController::class, 'create'])
         ->name('admin.addCarRepair');
-
+// to store car detail to data base
     Route::post('/admin/car-repair/store', 
         [CarRepairHistoryController::class, 'store'])
-        ->name('admin.carRepairStore');
-    
+        ->name('admin.carRepairStore');    
     
 });
 
