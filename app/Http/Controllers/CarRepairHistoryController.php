@@ -6,6 +6,7 @@ use App\Models\car_repair_history;
 use App\Http\Requests\Storecar_repair_historyRequest;
 use App\Http\Requests\Updatecar_repair_historyRequest;
 use App\Models\employees;
+use Illuminate\Http\Request;
 
 
 class CarRepairHistoryController extends Controller
@@ -15,7 +16,8 @@ class CarRepairHistoryController extends Controller
      */
     public function index()
     {
-        $carRepairs = car_repair_history::all();
+        $carRepairs = car_repair_history::with('employee')->get();
+
         return view('admin.carRepairHistory', compact('carRepairs'));
     }
 
@@ -51,10 +53,20 @@ class CarRepairHistoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(car_repair_history $car_repair_history)
+    public function show(Request $request)
     {
-        //
+        $search = $request->input('search');
+        $field = $request->input('field', 'vin');
+
+        if ($search) {
+            $carRepairs = car_repair_history::where($field, 'like', '%' . $search . '%')->get();
+        } else {
+            $carRepairs = car_repair_history::all();
+        }
+
+        return view('admin.carRepairHistory', compact('carRepairs'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

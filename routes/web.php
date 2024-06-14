@@ -52,7 +52,12 @@ Route::middleware(['auth'])->group(function () {
 // to store car detail to data base
     Route::post('/admin/car-repair/store', 
         [CarRepairHistoryController::class, 'store'])
-        ->name('admin.carRepairStore');    
+        ->name('admin.carRepairStore');  
+// to search a car detail
+    Route::get('/admin/car-repairs-search', 
+        [CarRepairHistoryController::class, 'show'])
+        ->name('admin.carRepairHistorySearch');
+
     
 });
 

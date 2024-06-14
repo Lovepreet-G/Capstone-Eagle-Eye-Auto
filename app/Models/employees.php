@@ -21,4 +21,8 @@ class employees extends Model
         "joining_date",
         "resignation_date"
     ];
+    public function carRepairs()
+    {
+        return $this->hasMany(car_repair_history::class,'employee_id');
+    }
 }

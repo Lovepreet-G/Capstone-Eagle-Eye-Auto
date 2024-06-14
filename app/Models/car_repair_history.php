@@ -21,4 +21,8 @@ class car_repair_history extends Model
         "total_cost",
         "note"
     ];
+    public function employee()
+    {
+        return $this->belongsTo(employees::class,'employee_id');
+    }
 }
