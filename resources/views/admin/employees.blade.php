@@ -28,6 +28,7 @@
                 <th scope="col">Job Role</th>
                 <th scope="col">Joining Date</th>
                 <th scope="col">Resignation Date</th>
+                <th scope="col">Action</th> 
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,9 @@
                     <td>{{ $employee->job_role }}</td>
                     <td>{{ $employee->joining_date }}</td>
                     <td>{{ $employee->resignation_date }}</td>
+                    <td>
+                        <a href="{{ route('admin.editEmployee', $employee->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

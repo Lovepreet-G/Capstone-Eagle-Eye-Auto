@@ -34,9 +34,9 @@ class EmployeesController extends Controller
         $request->validate([
             'employee_name' => 'required|string|max:100',
             'email_address' => 'required|email|max:100',
-            'mobile_number' => 'required|numeric',
+            'mobile_number' => 'required',
             'address' => 'required|string|max:200',
-            'job_role' => 'required|string|max:100',
+            'job_role' => 'nullable|string|max:100',
             'joining_date' => 'required|date',
             'resignation_date' => 'nullable|date',
         ]);
@@ -74,17 +74,37 @@ class EmployeesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(employees $employees)
+    public function edit($id)
     {
-        //
+        $employee = employees::findOrFail($id);
+        return view('admin.editEmployee', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateemployeesRequest $request, employees $employees)
+    public function update(Request $request, $id)
     {
-        //
+        $employee = employees::findOrFail($id);
+
+       
+    
+        $validatedData = $request->validate([
+            'employee_name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'mobile' => 'required',
+            'address' => 'required|string|max:300',
+            'job_role' => 'nullable|string|max:100',
+            'joining_date' => 'required|date',
+            'resignation_date' => 'nullable|date',
+        ]);
+        
+        
+
+        $employee->update($validatedData);
+
+        return redirect()->route('admin.employees')->with('success', 'Employee details updated successfully.');
+        dd("test");
     }
 
     /**

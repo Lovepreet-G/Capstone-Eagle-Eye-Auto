@@ -43,7 +43,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/employees-search', 
         [EmployeesController::class, 'show'])
         ->name('admin.employees-search');
-     
+// show edit employee form
+    Route::get('/admin/employees/{id}/edit', 
+        [EmployeesController::class, 'edit'])
+        ->name('admin.editEmployee');
+// Update employee data
+    Route::put('/admin/employees/{id}', 
+        [EmployeesController::class, 'update'])
+        ->name('admin.updateEmployee');
     
 // Route to show all records of  car repaired
     Route::get('/admin/car-repairs', 
