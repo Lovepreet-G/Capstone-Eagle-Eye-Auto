@@ -7,9 +7,9 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Group routes that require authentication
 Route::middleware(['auth'])->group(function () {
@@ -70,6 +70,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('admin.carRepairHistorySearch');
 
     
+});
+Route::get('/', function()
+    {
+        return view('homepage');
 });
 
 Route::get('/dashboard', function () {

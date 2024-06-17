@@ -1,0 +1,242 @@
+body
+{
+    margin:0;
+    font-family: "Poppins", sans-serif;
+}
+.gray
+{
+    color: #8d8d8d;
+}
+.display-block
+{
+    display: block;
+}
+#top
+{
+    padding: 0 15px;
+    background-color: #202020;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    color: aliceblue;
+    /* color: #e53f29; */
+    height: 2em;
+}
+#top-left i
+{
+    color: #e53f29;
+    /* height: 10px;
+    width: 10px; */
+}
+/* navigation bar */
+nav
+{
+    height: 5%;
+}
+/* brand name */
+#brand-name img
+{
+    padding: 5px;
+    height: 80px;
+    width : 80px
+}
+#brand-name
+{
+    color: #e53f29;
+    font-size: 2em;
+    font-weight: bold;
+    display: inline;
+    margin-right: 30px;
+}
+ul,li{
+    list-style-type: none;
+    padding: 0;
+}
+
+.horizontal-list {
+    
+    margin: 0;
+    padding: 0;
+    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+.horizontal-list li {
+    margin-right: 20px;
+}
+
+.horizontal-list li a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px;
+    /* display: block; */
+}
+
+.horizontal-list li a:hover {
+    /* background-color: #555; */
+    /* text-decoration: underline #e53f29; */
+    border-bottom: 3px solid #e53f29 ;
+}
+
+#intro 
+{
+    display:flex;
+    margin-bottom: 2em;
+    padding-left: 1em;
+    height: 40vh;
+    /* background-color: rgb(218, 214, 214); */
+    align-items: center;
+    background-image:url("../images/car-bg.png") ;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: right;
+}
+#intro-brand
+{
+    font-size: 4em;
+    font-weight: 800;
+    color: #e53f29;
+
+}
+#intro-left
+{
+    padding-left: 10%;
+    width: 80vw;
+    
+}
+#intro-left span
+{
+    display: block;
+}
+#intro-left big
+{
+    font-size: 3rem;
+    padding-right: 10%;
+    /* width: 40% !important; */
+    /* text-wrap: wrap; */
+    line-height: 1;
+}
+
+footer
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #202020;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    padding: 2%; 
+    color: aliceblue;
+    gap: 25px;    
+}
+
+#footer-logo
+{
+    justify-items: center;
+}
+#footer-logo img
+{
+    /* align-self: center; */
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+#contact
+{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+ul li i{
+    margin-left: -10px;
+}
+#second-section
+{
+    display: flex;    
+    flex-direction: row;
+    align-content: space-around;
+}
+#second-section div
+{
+    display: flex;
+    width: 25%;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+#second-section div span
+{
+    font-size: 2em;
+    display: block;
+    font-weight:bold ;
+    
+}
+#engine-bg 
+{
+    background-image: url("../images/engine.png");
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+#oil
+{
+    background-image: url("../images/oil.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#maintenance
+{
+    background-image: url("../images/orange-bg.jpg");
+    color: aliceblue;
+
+}
+#certified
+{
+    background-image: url("../images/black-bg.jpg");
+    color:aliceblue;
+}
+#services-section
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+#services-heading
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+#services
+{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+#services div
+{
+    /* display: flex; */
+    text-align: center;
+    width: 250px;
+    color: #8d8d8d;
+    
+}
+#services div span
+{
+    color: #202020;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 3;
+}
+#icon img
+{
+    height: 50px;
+    width: 50px;
+}
+
+
