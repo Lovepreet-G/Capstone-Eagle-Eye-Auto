@@ -35,7 +35,13 @@
             </div>
             <div class="mb-3">
                 <label for="job_role" class="form-label">Job Role</label>
-                <input type="text" class="form-control" id="job_role" name="job_role" required>
+                <select class="form-control" id="job_role" name="job_role" required>
+                    <option value="">Select Job Role</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Sales Executive">Sales Executive</option>
+                    <option value="Mechanic">Mechanic</option>
+                    <option value="Lead Mechanic">Lead Mechanic</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="joining_date" class="form-label">Joining Date</label>

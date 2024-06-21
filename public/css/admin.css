@@ -30,7 +30,7 @@ nav a
 /* active side bar */
 .nav-link.active {
     font-weight: bold;
-    color: #007bff; /* Example color for active link */
+    color: #e53f29; 
 }
 .sidebar {
     width: 200px;
@@ -122,7 +122,15 @@ table
     bottom: 10px;
     right: 10px;
     font-size: 48px;
-    color: rgba(0, 0, 0, 0.274);
+    color: #ff4e365b;
+}
+.btn
+{
+    background-color: #fa5f4a;
+}
+.btn:hover
+{
+    background-color: #ca4b3a;
 }
 
 

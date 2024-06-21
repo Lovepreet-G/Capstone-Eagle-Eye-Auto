@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'password'
         ]);
 
-        Employees::factory(20) ->create();
+        Employees::factory(5) ->create();
     }
 
 }

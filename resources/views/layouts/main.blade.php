@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Eagle Eye Auto</title>
    
     {{-- google font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +25,9 @@
     <Header>
         <div id="top">
             <div id="top-left">                
-                    <i class="bi bi-telephone"></i>(604) 897-6495
+                    <img class="small-icon" src="{{ asset('images/phone-call.png') }}" alt="call logo" srcset="">&nbsp; (604) 897-6495&nbsp;
                     
-                    <i class="bi bi-geo-alt"></i> -> #103 13483 78 Ave Surrey, BC V3W 0A8, Canada 
+                    <img class="small-icon" src="{{ asset('images/location.png') }}" alt="call logo" srcset="">&nbsp; #103 13483 78 Ave Surrey, BC V3W 0A8, Canada 
             </div>
             <div id="top-right">
                 We Opened Daily 8:00am-9:00pm
@@ -37,9 +37,9 @@
             <ul class="horizontal-list">
                 <li id="brand-name"><img src="{{ asset('images/logo.jpg') }}" alt="Logo"> </li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Review</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reviews">Review</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </Header>
@@ -57,11 +57,11 @@
                 <ul>
                     <li>
                         {{-- <i class="fa-phone"></i> --}}
-                        Call Us 24/7 <span class="gray display-block">(604) 897-6495</span>
+                        <img class="small-icon" src="{{ asset('images/phone-call.png') }}" alt="call logo" srcset="">&nbsp; Call Us 24/7 <span class="gray display-block">(604) 897-6495</span>
                     </li>
                     <li>
                         {{-- <i class="fa-solid fa-mobile"></i> --}}
-                        We Are Here <span class="gray display-block">#103 13483 78 Ave Surrey, BC V3W 0A8, Canada</span> 
+                        <img class="small-icon" src="{{ asset('images/location.png') }}" alt="call logo" srcset="">&nbsp;We Are Here <span class="gray display-block">#103 13483 78 Ave Surrey, BC V3W 0A8, Canada</span> 
                     </li>
                 </ul>
             </div>

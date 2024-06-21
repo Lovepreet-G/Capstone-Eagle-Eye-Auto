@@ -68,7 +68,17 @@
                     Add Employee
                 </a>
             </li>
-            <!-- Add more sidebar links as needed -->
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.services') ? 'active' : '' }}" href="{{ route('admin.services') }}">
+                    Services
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Route::is('admin.addEmployee') ? 'active' : '' }}" href="{{ route('admin.addService') }}">
+                    Add Services
+                </a>
+            </li>
+            
         </ul>
     </nav>
     

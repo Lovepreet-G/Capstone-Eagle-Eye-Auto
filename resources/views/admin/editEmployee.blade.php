@@ -29,7 +29,13 @@
 
         <div class="mb-3">
             <label for="job_role" class="form-label">Job Role</label>
-            <input type="text" class="form-control" id="job_role" name="job_role" value="{{ $employee->job_role }}" required>
+            <select class="form-control" id="job_role" name="job_role" required>
+                <option value="">Select Job Role</option>
+                <option value="Manager" {{ $employee->job_role == 'Manager' ? 'selected' : '' }}>Manager</option>
+                <option value="Sales Executive" {{ $employee->job_role == 'Sales Executive' ? 'selected' : '' }}>Sales Executive</option>
+                <option value="Mechanic" {{ $employee->job_role == 'Mechanic' ? 'selected' : '' }}>Mechanic</option>
+                <option value="Lead Mechanic" {{ $employee->job_role == 'Lead Mechanic' ? 'selected' : '' }}>Lead Mechanic</option>
+            </select>
         </div>
 
         <div class="mb-3">

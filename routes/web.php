@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CarRepairHistoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
+
+
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
@@ -22,10 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', 
         [DashboardController::class, 'showDashboard'])
         ->name('admin.dashboard');
-    // Route::get('/admin/dashboard', function () {
-    //     return view('admin.dashboard');
-    // })->name('admin.dashboard');
-
+    
     
 // show all employees
     Route::get('/admin/employees', 
@@ -68,13 +69,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/car-repairs-search', 
         [CarRepairHistoryController::class, 'show'])
         ->name('admin.carRepairHistorySearch');
+// to show services
+    Route::get('/admin/services', 
+        [ServiceController::class, 'adminIndex'])
+        ->name('admin.services');
+// to show form to add service
+    Route::get('/admin/services/create', 
+        [ServiceController::class, 'create'])->name('admin.addService');
+// to store service to db
+    Route::post('/admin/services', 
+        [ServiceController::class, 'store'])->name('admin.servicesstore');
+        
+});
 
-    
-});
-Route::get('/', function()
-    {
-        return view('homepage');
-});
+Route::get('/', 
+        [HomeController::class, 'index'])
+        ->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
