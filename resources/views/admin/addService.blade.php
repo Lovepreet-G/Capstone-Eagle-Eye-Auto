@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5">
     <h2>Add New Service</h2>
-    <form action="{{ route('admin.servicesstore') }}" method="POST">
+    <form action="{{ route('admin.servicesstore') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="service_name" class="form-label">Service Name</label>
@@ -15,7 +15,8 @@
         </div>
         <div class="mb-3">
             <label for="service_icon" class="form-label">Service Icon</label>
-            <input type="text" class="form-control" id="service_icon" name="service_icon" required>
+            <input type="file" class="form-control" id="service_icon" name="service_icon" required>
+            <div class="form-text">Please download icon from Flaticon.com only!!(color : #e53f29)</div>
         </div>
         <button type="submit" class="btn btn-primary">Add Service</button>
     </form>

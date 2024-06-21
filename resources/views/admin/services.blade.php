@@ -19,7 +19,7 @@
                 <td>{{ $service->id }}</td>
                 <td>{{ $service->service_name }}</td>
                 <td>{{ $service->service_description }}</td>
-                <td><i class="{{ $service->service_icon }}"></i></td>
+                <td><img src="{{ asset($service->service_icon) }}" alt="{{ $service->service_name }}" width="30"></td>
             </tr>
             @endforeach
         </tbody>

@@ -74,7 +74,7 @@ Route::middleware(['auth'])->group(function () {
         [ServiceController::class, 'adminIndex'])
         ->name('admin.services');
 // to show form to add service
-    Route::get('/admin/services/create', 
+    Route::get('/admin/addService', 
         [ServiceController::class, 'create'])->name('admin.addService');
 // to store service to db
     Route::post('/admin/services', 
@@ -85,6 +85,11 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', 
         [HomeController::class, 'index'])
         ->name('home');
+// to show services
+Route::get('/services', 
+    [ServiceController::class, 'index'])
+    ->name('services');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

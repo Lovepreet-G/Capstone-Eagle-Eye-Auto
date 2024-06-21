@@ -37,7 +37,17 @@
         Get Over 100 car repairs
     </div>
     <div id="services">
-        <div>
+        @foreach($services as $service)
+            <div >
+                <div id="icon">
+                    <img src="{{ asset($service->service_icon) }}" alt="{{ $service->service_name }}">
+                </div>
+                <span>{{ $service->service_name }}</span>
+                <div>{{ $service->service_description }}</div>
+            </div>            
+        @endforeach
+        
+        {{-- <div>
             <div id="icon"><img src="{{ asset('images/car-oil.png') }}" alt="" srcset=""></div>
             <span>Change oil &filter</span>
             <div>Expert oil and filter change services to keep your engine running smoothly and efficiently.</div>
@@ -70,9 +80,12 @@
             <div id="icon"><img src="{{ asset('images/brake-pad.png') }}" alt="" srcset=""></div>
             <span>Brake Pad Replacement</span>
             <div>Trusted brake pad replacement services to keep your vehicle stopping safely.</div>
-        </div>
+        </div> --}}
 
     </div>
+    <a href="{{ route('services') }}" class="btn btn-primary mt-4">View All Services</a>
+</div>
+
     <div id="reviews" class="d-flex flex-column align-items-center">
         <div class="heading">
             Tell Us How We are Doing
@@ -137,6 +150,6 @@
     
     
     
-</div>
+
 
 @endsection

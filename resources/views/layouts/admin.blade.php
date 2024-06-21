@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('admin.addEmployee') ? 'active' : '' }}" href="{{ route('admin.addService') }}">
+                <a class="nav-link {{ Route::is('admin.addService') ? 'active' : '' }}" href="{{ route('admin.addService') }}">
                     Add Services
                 </a>
             </li>

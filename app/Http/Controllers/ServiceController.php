@@ -6,6 +6,9 @@ use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 
+use Illuminate\Http\Request;
+
+
 class ServiceController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('allServices', compact('services'));
     }
 
     // Show all services in the admin area
@@ -35,9 +39,13 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'service_name' => 'required|string|max:255',
             'service_description' => 'required|string',
-            'service_icon' => 'required|string|max:255',
+            'service_icon' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        if ($request->hasFile('service_icon')) {
+            $imagePath = $request->file('service_icon')->store('images', 'public');
+            $validated['service_icon'] = 'storage/' . $imagePath; // Save path to the public directory
+        }
         Service::create($validated);
 
         return redirect()->route('admin.services')->with('success', 'Service added successfully.');
