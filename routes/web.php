@@ -5,6 +5,8 @@ use App\Http\Controllers\CarRepairHistoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ReviewsController;
+
 
 
 
@@ -79,7 +81,19 @@ Route::middleware(['auth'])->group(function () {
 // to store service to db
     Route::post('/admin/services', 
         [ServiceController::class, 'store'])->name('admin.servicesstore');
-        
+// to show edit form
+    Route::get('/admin/services/{service}/edit', 
+        [ServiceController::class, 'edit'])
+        ->name('editService');
+// to store the updated service value
+    Route::put('/admin/services/{service}', 
+        [ServiceController::class, 'update'])
+        ->name('updateService');
+// to delete a service
+    Route::delete('/admin/services/{service}', 
+        [ServiceController::class, 'destroy'])
+        ->name('destroyService');
+    
 });
 
 Route::get('/', 
@@ -89,6 +103,13 @@ Route::get('/',
 Route::get('/services', 
     [ServiceController::class, 'index'])
     ->name('services');
+// to store reviews
+Route::post('/reviews', 
+    [ReviewsController::class, 'store'])
+    ->name('reviewsstore');
+Route::get('/allreviews', 
+    [ReviewsController::class, 'index'])
+    ->name('allReviews');
 
 
 Route::get('/dashboard', function () {

@@ -6,6 +6,9 @@ use App\Models\reviews;
 use App\Http\Requests\StorereviewsRequest;
 use App\Http\Requests\UpdatereviewsRequest;
 
+use Illuminate\Http\Request;
+
+
 class ReviewsController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = reviews::all();
+        return view('allReviews', compact('reviews'));
     }
 
     /**
@@ -27,9 +31,23 @@ class ReviewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorereviewsRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:reviews,email',
+            'rating' => 'required|integer|min:1|max:10',
+            'review_description' => 'required|string',
+        ]);
+
+        Reviews::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'rating' => $request->rating,
+            'review_description' => $request->review_description,
+        ]);
+
+        return redirect()->back()->with('success', 'Thank you for your review!');
     }
 
     /**

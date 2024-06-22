@@ -38,7 +38,7 @@
                 <li id="brand-name"><img src="{{ asset('images/logo.jpg') }}" alt="Logo"> </li>
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('services') }}">Services</a></li>
-                <li><a href="#reviews">Review</a></li>
+                <li><a href="{{ route('allReviews') }}">Review</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>

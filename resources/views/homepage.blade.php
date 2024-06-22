@@ -93,57 +93,45 @@
         <div class="d-flex w-100 justify-content-around">
             <div id="post-review" class="d-flex flex-column">
                 <h5>Post a Review</h5>
-                <form id="review-form">
+                <form id="review-form" action="{{ route('reviewsstore') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" name="name" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" name="email" class="form-control" id="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Rate Us (1-10)</label>
-                        <input type="number" class="form-control" id="rating" name="rating" min="1" max="10" required>
+                        <input type="number" name="rating" class="form-control" id="rating" min="1" max="10" required>
                     </div>
                     <div class="mb-3">
-                        <label for="review" class="form-label">Review Description</label>
-                        <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
+                        <label for="review_description" class="form-label">Review Description</label>
+                        <textarea name="review_description" class="form-control" id="review_description" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                    @if(session('success'))
+                        <div class="alert alert-success mt-4">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                
             </div>
             <div id="show-review" class="d-flex flex-column">
                 <h5>Voices of Our Customer</h5>
                 <!-- Example review cards -->
-                <div class="card" style="width: 18rem; margin-bottom: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Rating: 8</h6>
-                        <p class="card-text">Great service!</p>
+                @foreach($reviews as $review)
+                    <div class="card mb-3" style="width: 18rem; margin-bottom: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="initial-circle" style="background-color: #{{ substr(md5($review->name), 0, 6) }};"> {{ strtoupper(substr($review->name, 0, 1)) }}</span>&nbsp;{{ $review->name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Rating: {{ $review->rating }}/10</h6>
+                            <p class="card-text">{{ $review->review_description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 18rem; margin-bottom: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Jane Smith</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Rating: 9</h6>
-                        <p class="card-text">Very satisfied with the repair work.</p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem; margin-bottom: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Robert Brown</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Rating: 7</h6>
-                        <p class="card-text">Good, but there's room for improvement.</p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem; margin-bottom: 10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Emily White</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Rating: 10</h6>
-                        <p class="card-text">Excellent service, highly recommend!</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

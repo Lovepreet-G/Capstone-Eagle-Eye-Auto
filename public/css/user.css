@@ -276,6 +276,19 @@ ul li i{
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
+/* form circle infront of user's name  */
+.initial-circle {
+    width: 40px;
+    height: 40px;
+    /* background-color: #007bff; */
+    color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
 
 .review-item:last-child {
     border-bottom: none;
