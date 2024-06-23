@@ -84,15 +84,15 @@ Route::middleware(['auth'])->group(function () {
 // to show edit form
     Route::get('/admin/services/{service}/edit', 
         [ServiceController::class, 'edit'])
-        ->name('editService');
+        ->name('admin.editService');
 // to store the updated service value
     Route::put('/admin/services/{service}', 
         [ServiceController::class, 'update'])
-        ->name('updateService');
+        ->name('admin.updateService');
 // to delete a service
     Route::delete('/admin/services/{service}', 
         [ServiceController::class, 'destroy'])
-        ->name('destroyService');
+        ->name('admin.destroyService');
     
 });
 

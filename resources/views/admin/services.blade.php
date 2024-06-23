@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+
 @section('content')
 <div class="container">
     <h2>Manage Services</h2>
@@ -22,47 +23,28 @@
                 <td>{{ $service->service_description }}</td>
                 <td><img src="{{ asset($service->service_icon) }}" alt="{{ $service->service_name }}" width="30"></td>
                 <td>
-                    <a href="{{ route('admin.editServices', ['service' => $service->id]) }}" class="btn btn-sm btn-primary">Edit</a>
-                    <button class="btn btn-sm btn-danger" onclick="deleteService({{ $service->id }})">Delete</button>
+                    <a href="{{ route('admin.editService', ['service' => $service->id]) }}" class="btn btn-sm btn-primary">Edit</a>
+                    <button onclick="deleteService({{ $service->id }})" class="btn btn-danger">Delete</button>
+                    <form id="delete-form-{{ $service->id }}" action="{{ route('admin.destroyService', $service->id) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
-
-<!-- Custom delete confirmation modal -->
-<div class="modal fade" id="deleteServiceModal" tabindex="-1" aria-labelledby="deleteServiceModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteServiceModalLabel">Confirm Delete Service</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this service?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <form id="deleteServiceForm" method="POST" action="">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 @section('scripts')
 <script>
-    function deleteService(serviceId) {
-        $('#deleteServiceModal').modal('show');
-        var url = "{{ route('admin.servicedestroy', ':id') }}";
-        url = url.replace(':id', serviceId);
-        document.getElementById('deleteServiceForm').action = url;
+   function deleteService(serviceId) {
+        if (confirm('Are you sure you want to delete this service?')) {
+            document.getElementById('delete-form-' + serviceId).submit();
+        }
     }
+      
 </script>
+    
+    
 @endsection
