@@ -122,4 +122,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/run-migration',function(){
+    Artisan::call(command:'optimize:clear');
+
+    Artisan::call(command: 'migrate:refresh --seed');
+    return "success";
+});
+
 require __DIR__.'/auth.php';
