@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Models\Reviews;
+use App\Models\reviews;
 
 use Illuminate\Http\Request;
 
