@@ -1,4 +1,5 @@
 # Eagle Eye Auto
+[Visit the Hosted Website](capstone.lovepreet-g.com)
 
 ## Description
 
@@ -18,34 +19,68 @@ Eagle Eye Auto aims to establish an online presence for the mechanic shop, enhan
 
 - Service Showcase
 - Contact Form
-- Employee Management 
-- Car Repair History 
+- Employee Management
+- Car Repair History
 
 ### Should Have
 
-- Search Car Repair History By VIN 
+- Search Car Repair History By VIN
 
-### Nice to have
+### Nice to Have
 
 - User Reviews
 - User Profile
-- Employee Shift Schedule 
-- Employee Login 
+- Employee Shift Schedule
+- Employee Login
 
-# Technology Stack
+## Technology Stack
 
-## Backend Framework
+### Backend Framework
 - PHP Laravel
 
-## Database
+### Database
 - MySQL
 
-## Frontend
+### Frontend
 - HTML
 - CSS
 - JavaScript
 
-## Third-party APIs
+### Third-party APIs
 - Google Maps API
+
+## Hosting
+- The application is hosted on Amazon Web Services (AWS) to ensure high availability and scalability.
+
 ## Contributors
 - [Lovepreet Singh](https://github.com/Lovepreet-G)
+
+## Screenshots
+
+### Homepage
+![Homepage](screenshots/main.jpg)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin_dash.jpg)
+
+### Employee List
+![Employee List](screenshots/employeelist.jpg)
+
+### Car History List
+![Car History List](screenshots/carrepair.jpg)
+
+### Add Employee
+![Add Employee](screenshots/addemployee.jpg)
+
+### Add Car Detail
+![Add Car Detail](screenshots/addcar.jpg)
+
+### Services
+![Services](screenshots/services.jpg)
+
+### Add Service
+![Add Service](screenshots/addservices.jpg)
+
+These screenshots provide a visual representation of the key sections of the Eagle Eye Auto website, showcasing the user interface and functionality available to both users and administrators.
+
+---
