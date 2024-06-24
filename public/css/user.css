@@ -358,8 +358,8 @@ ul li i{
     }
     .horizontal-list li a {
        
-        font-size: 1em;
-        padding: 5px;
+        font-size: 0.8em;
+        padding: 2px;
         text-wrap: nowrap;
        
     }
@@ -380,4 +380,12 @@ ul li i{
     {
         width: 100%;
     }
+    #contact
+    {
+        flex-direction: column;
+        width: 80%;
+        justify-content: center;
+        
+    }
+
 }
