@@ -1,5 +1,5 @@
 # Eagle Eye Auto
-[Visit the Hosted Website](www.lovepreet-g.com)
+[Visit the Hosted Website](http://www.lovepreet-g.com)
 
 ## Description
 
