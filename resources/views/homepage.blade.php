@@ -90,7 +90,7 @@
         <div class="heading">
             Tell Us How We are Doing
         </div>
-        <div class="d-flex w-100 justify-content-around">
+        <div class="d-flex w-100 justify-content-around " id="review-area">
             <div id="post-review" class="d-flex flex-column">
                 <h5>Post a Review</h5>
                 <form id="review-form" action="{{ route('reviewsstore') }}" method="POST">
