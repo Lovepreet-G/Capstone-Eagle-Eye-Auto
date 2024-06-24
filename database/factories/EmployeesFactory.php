@@ -18,11 +18,11 @@ class EmployeesFactory extends Factory
     {
         return [
             
-            "employee_name" => fake() ->Name(),
-            "email" => fake() ->unique()->safeEmail(),
-            "mobile" => fake() ->unique()->phoneNumber(),
-            "address" => fake() ->address(),
-            "joining_date" => fake() ->date(),
+            // "employee_name" => fake() ->Name(),
+            // "email" => fake() ->unique()->safeEmail(),
+            // "mobile" => fake() ->unique()->phoneNumber(),
+            // "address" => fake() ->address(),
+            // "joining_date" => fake() ->date(),
             // "job_role" => fake() ->jobRole()
 
         ];
