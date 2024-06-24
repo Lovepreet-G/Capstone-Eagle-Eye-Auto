@@ -42,6 +42,7 @@
         if (confirm('Are you sure you want to delete this service?')) {
             document.getElementById('delete-form-' + serviceId).submit();
         }
+        
     }
       
 </script>
